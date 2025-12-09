@@ -103,7 +103,7 @@ class Bird(pg.sprite.Sprite):
             self.dire = tuple(sum_mv)
             self.image = self.imgs[self.dire]
         
-        if key_lst[pg.K_RSHIFT] and self.score.value > 100:  # 右シフトキーを押下かつ、scoreが100より大きい場合無敵状態を発動する
+        if key_lst[pg.K_RSHIFT] and self.score.value > 100 and self.state != "hyper":  # 右シフトキーを押下かつ、scoreが100より大きい場合無敵状態を発動する
             self.image = pg.transform.laplacian(self.image)
             self.state = "hyper"
             self.hyper_life = 500  # 無敵状態の継続時間を500フレームに設定
